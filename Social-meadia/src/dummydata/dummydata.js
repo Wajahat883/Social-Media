@@ -63,7 +63,7 @@ export const MoreUsers = [
     profilePicture: baby1,
   },
   {
-    id: 10,
+    id: 11,
     username: "Hadier Ali",
     profilePicture: nature3,
   },
@@ -98,7 +98,7 @@ export const MorePost = [
   },
   {
     id: 4,
-    desc: "Sunset vibes ☀️",
+    desc: "Sunset vibes ",
     photo: nature7,
     date: "1 hour ago",
     userId: 9,
@@ -107,7 +107,7 @@ export const MorePost = [
   },
   {
     id: 5,
-    desc: "Cute baby moments 🍼",
+    desc: "Cute baby moments ",
     photo: baby1,
     date: "2 hours ago",
     userId: 10,
@@ -125,7 +125,7 @@ export const MorePost = [
   },
   {
     id: 7,
-    desc: "Throwback to this trip 💭",
+    desc: "Throwback to this trip ",
     photo: boy4,
     date: "5 hours ago",
     userId: 6,
@@ -134,7 +134,7 @@ export const MorePost = [
   },
    {
     id: 8,
-    desc: "Throwback to this trip 💭",
+    desc: "Throwback to this trip ",
     photo: cake2,
     date: "5 hours ago",
     userId:7 ,

@@ -49,7 +49,7 @@ export default function Profile() {
               <Feed />
             </div>
             <div className="w-1/3">
-              <Rightbar />
+              <Rightbar profile />
             </div>
           </div>
         </div>
