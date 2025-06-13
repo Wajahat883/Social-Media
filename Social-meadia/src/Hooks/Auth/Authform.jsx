@@ -2,15 +2,22 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { MessageCircle, Users, Heart } from "lucide-react";
 import Socialxlogos from "../../Pages/logos/Socialxlogos";
+import './authform.css'
+import xLogo from '../../assets/Pics/logo.png'
 
 const Authform = ({ children, title, subtitle, linkText, linkTo }) => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 flex items-center justify-center px-4 py-8">
-      <div className="w-full max-w-5xl bg-white rounded-2xl shadow-2xl flex flex-col md:flex-row overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br animated-gradient flex items-center justify-center px-4 py-8 ">
+      <span className="absolute top-10 left-10 w-20 h-20 border border-white rounded-full"></span>
+      <span className="absolute bottom-20 right-10 w-32 h-32 border border-white rounded-full"></span>
+      <span className="absolute top-1/25 right-100 w-16 h-16 border border-white rounded-full"></span>
+      <span className="absolute bottom-1/3 left-15 w-16 h-16 border border-white rounded-full"></span>
+      <span className="absolute bottom-1/3 right-15 w-16 h-16 border border-white rounded-full"></span>
         
-        {/* Left Side - Branding */}
-        <div className="md:w-1/2 bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 p-8 md:p-12 flex flex-col justify-center items-center text-white relative overflow-hidden">
-          {/* Background Decoration */}
+      <div className="w-full max-w-5xl rounded-2xl shadow-2xl flex flex-col md:flex-row overflow-hidden">
+        
+        
+        <div className="md:w-1/2 animated-gradient p-8 md:p-12 flex flex-col justify-center items-center text-white relative overflow-hidden">
           <div className="absolute inset-0 opacity-10">
             <div className="absolute top-10 left-10 w-20 h-20 border border-white rounded-full"></div>
             <div className="absolute bottom-20 right-10 w-32 h-32 border border-white rounded-full"></div>
@@ -18,13 +25,15 @@ const Authform = ({ children, title, subtitle, linkText, linkTo }) => {
           </div>
 
           <div className="relative z-10 text-center">
-            < Socialxlogos/>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              Social<span className="text-cyan-300">X</span>
-            </h1>
-            <p className="text-xl mb-6 opacity-90">
-              Connect • Share • Discover
-            </p>
+            <Socialxlogos />
+              <div className="flex items-center space-x-3 mb-2">
+        <img src={xLogo} alt="Logo" className="w-12 h-12 rounded-xl shadow-lg" />
+        <span className="text-4xl font-extrabold bg-gradient-to-r from-pink-500 via-purple-500 to-yellow-400 text-transparent bg-clip-text tracking-wide">
+          SocialX
+        </span>
+      </div>
+              
+            <p className="text-xl mb-6 opacity-90">Connect • Share • Discover</p>
             <p className="text-lg opacity-80 max-w-sm leading-relaxed">
               Join millions of people sharing their stories and connecting with friends around the world.
             </p>
@@ -46,8 +55,8 @@ const Authform = ({ children, title, subtitle, linkText, linkTo }) => {
           </div>
         </div>
 
-        {/* Right Side - Auth Form */}
-        <div className="w-full md:w-1/2 p-10 space-y-6">
+       
+        <div className="w-full md:w-1/2 p-10 space-y-6 bg-white">
           <h2 className="text-2xl font-semibold text-gray-800 text-center">{title}</h2>
 
           {children}

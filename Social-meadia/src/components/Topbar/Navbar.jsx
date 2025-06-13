@@ -1,55 +1,74 @@
 import React from 'react';
 import girlImg from '../../assets/Pics/girl1.jpg';
-import { Search, User, MessageSquareText, Bell } from 'lucide-react';
+import { Search, Home, Users, Video, Store, MessageCircle, Bell, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import xLogo from '../../assets/Pics/logo.png';
 
 export default function Navbar() {
   return (
-    <div className="w-full sticky top-0 bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600  h-16 flex items-center justify-between px-6 shadow-md z-50">
-      
-     
-      <Link to="/" className="text-white font-bold text-xl">SocialApp</Link>
+    <div className="w-full sticky top-0 bg-gradient-to-r from-pink-500 via-purple-500 to-yellow-400 h-16 flex items-center justify-between px-4 shadow-md  z-50">
 
-   
-      <div className="flex items-center bg-white px-3 py-1 rounded-full w-1/3">
-        <Search className="w-5 h-5 text-gray-500" />
-        <input
-          type="text"
-          placeholder="Search for friend, post or video"
-          className="ml-2 outline-none w-full text-sm"
-        />
+     
+      <div className="flex items-center gap-4 flex-1">
+        <Link to="/" className="flex items-center gap-2 text-black font-bold text-xl">
+          <img src={xLogo} alt="Logo" className="w-10 h-10 rounded-lg" />
+          <span className="text-2xl font-extrabold  text-black">
+            SocialX
+          </span>
+        </Link>
+
+        
+        <div className="relative ml-4 w-64">
+          <Search className="w-4 h-4 text-gray-500 absolute left-3 top-1/2 transform -translate-y-1/2" />
+          <input
+            type="text"
+            placeholder="Search SocialX"
+            className="w-full bg-gray-100 rounded-full pl-10 pr-4 py-2 text-sm outline-none focus:bg-white focus:shadow-md transition-all"
+          />
+        </div>
       </div>
 
-      <div className="flex items-center gap-6">
-        
       
-        <div className="hidden md:flex gap-4 text-white font-medium">
-         <Link to="/" className="hover:underline cursor-pointer">Homepage</Link>
-          <Link to="/profile" className="hover:underline cursor-pointer">Timeline</Link>
+      <div className="flex justify-center flex-1 space-x-6">
+        <Link to="/" className="flex items-center justify-center w-14 h-12 hover:bg-gray-100 rounded-md">
+          <Home className="w-6 h-6 text-gray-600 hover:text-blue-600" />
+        </Link>
+        <div className="flex items-center justify-center w-14 h-12 hover:bg-gray-100 rounded-md cursor-pointer">
+          <Users className="w-6 h-6 text-gray-600 hover:text-blue-600" />
+        </div>
+        <div className="flex items-center justify-center w-14 h-12 hover:bg-gray-100 rounded-md cursor-pointer">
+          <Video className="w-6 h-6 text-gray-600 hover:text-blue-600" />
+        </div>
+        <div className="flex items-center justify-center w-14 h-12 hover:bg-gray-100 rounded-md cursor-pointer">
+          <Store className="w-6 h-6 text-gray-600 hover:text-blue-600" />
+        </div>
+      </div>
+
+    
+      <div className="flex items-center gap-3 flex-1 justify-end">
+     
+    
+
+      
+        <div className="relative">
+          <div className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gray-300 transition cursor-pointer">
+            <Bell className="w-5 h-5 text-gray-700" />
+            <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">1</span>
+          </div>
         </div>
 
        
-        <div className="flex gap-4 text-white">
-          <div className="relative">
-            <User className="w-6 h-6" />
-            <span className="absolute -top-2 -right-2 bg-red-600 text-xs rounded-full px-1">1</span>
-          </div>
-          <div className="relative">
-            <MessageSquareText className="w-6 h-6" />
-            <span className="absolute -top-2 -right-2 bg-red-600 text-xs rounded-full px-1">1</span>
-          </div>
-          <div className="relative">
-            <Bell className="w-6 h-6" />
-            <span className="absolute -top-2 -right-2 bg-red-600 text-xs rounded-full px-1">1</span>
+        <div className="relative">
+          <div className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gray-300 transition cursor-pointer">
+            <MessageCircle className="w-5 h-5 text-gray-700" />
+            <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">1</span>
           </div>
         </div>
 
-   
-        <img
-          src={girlImg}
-          alt="profile"
-          className="w-10 h-10 rounded-full object-cover border-2 border-white"
-        />
+      
+           <Link to="/profile" >
+          <img src={girlImg} alt="profile" className="w-10 h-10 rounded-full object-cover" />
+        </Link>
       </div>
     </div>
   );

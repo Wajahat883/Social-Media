@@ -7,10 +7,10 @@ import HomePage from './Pages/Home/HomePage';
 import Profile from './Pages/profile/Profile';
 import Homes from './Pages/Home/Home';
 import Signup from './Pages/signup/Signup';
-import { useAuth } from './Hooks/Auth/UseAuth';
+// import { useAuth } from './Hooks/Auth/UseAuth';
 
 export default function App() {
-  const { currentUser } = useAuth();
+  // const { currentUser } = useAuth();
 
   return (
     <>
@@ -19,10 +19,10 @@ export default function App() {
 
     
       <Routes>
-        <Route path='/' element={currentUser ? <Homes /> : <Loginpage />} />
+        <Route path='/' element={<Homes />} />
         <Route path='/profile' element={<Profile />} />
-        <Route path='/login' element={<Loginpage />} />
-        <Route path='/signup' element={<Signup />} />
+        {/* <Route path='/login' element={<Loginpage />} /> */}
+        {/* <Route path='/signup' element={<Signup />} /> */}
         <Route path='/homepage' element={<HomePage />} />
       </Routes>
     </>
