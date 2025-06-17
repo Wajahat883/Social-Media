@@ -8,6 +8,7 @@ import Profile from './Pages/profile/Profile';
 import Homes from './Pages/Home/Home';
 import Signup from './Pages/signup/Signup';
 import { useAuth } from './Context/Authcontext';
+<<<<<<< HEAD
 import VideoPanel from './components/Sidebar/Allsidebarcomponent/Videos/Videopanel';
 import Messages from './components/Sidebar/Allsidebarcomponent/Message/Messages';
 import Layout from './Layout';
@@ -37,5 +38,24 @@ export default function App() {
 
 
     </>
+=======
+
+export default function App() {
+  const { user  } = useAuth();
+
+  return (
+   <>
+  <ToastContainer position="top-right" autoClose={4000} />
+  
+  <Routes>
+    <Route path="/" element={user ? <Homes /> : <Loginpage />} />
+    <Route path="/homepage" element={<HomePage />} />
+    <Route path="/profile" element={<Profile />} />
+    <Route path="/login" element={<Loginpage />} />
+    <Route path="/signup" element={<Signup />} />
+  </Routes>
+</>
+
+>>>>>>> ce2b804 (add video plane)
   );
 }

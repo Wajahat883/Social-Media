@@ -9,7 +9,10 @@ import { PostProvider } from './components/post/postcontext.jsx';
 import { VideoProvider } from './Context/videocontext.jsx';
 import { UIProvider } from './components/Sidebar/sharecontext/Sharecontext.jsx';
 import { UEProvider } from './Context/Videopanelcontext.jsx';
+<<<<<<< HEAD
 import { MessageProvider } from './Context/Messagecontext.jsx';
+=======
+>>>>>>> ce2b804 (add video plane)
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -17,15 +20,22 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <AuthProvider>
         <PostProvider>
           <VideoProvider>
+<<<<<<< HEAD
             <MessageProvider>
  <UEProvider>
+=======
+            <UEProvider>
+>>>>>>> ce2b804 (add video plane)
             <UIProvider>
 
             <App />
           </UIProvider>
             </UEProvider>
+<<<<<<< HEAD
             </MessageProvider>
            
+=======
+>>>>>>> ce2b804 (add video plane)
           
           </VideoProvider>         
         </PostProvider>

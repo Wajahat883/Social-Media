@@ -1,6 +1,10 @@
 import React, { useState, memo } from 'react';
 import {
+<<<<<<< HEAD
   Rss, Play, Users, BookMarked, CircleHelp,
+=======
+  Rss, MessagesSquare, Play, Users, BookMarked, CircleHelp,
+>>>>>>> ce2b804 (add video plane)
   BriefcaseBusiness, Calendar, GraduationCap, ChevronDown, ChevronRight,
   Settings, LogOut
 } from 'lucide-react';
@@ -10,7 +14,11 @@ import { useUI } from './sharecontext/Sharecontext';
 
 const menuItems = [
   { icon: Rss, label: 'Feed', color: 'text-orange-400' },
+<<<<<<< HEAD
  
+=======
+  { icon: MessagesSquare, label: 'Messages', color: 'text-green-400' },
+>>>>>>> ce2b804 (add video plane)
   { icon: Play, label: 'Videos', color: 'text-red-400' },
   { icon: Users, label: 'Groups', color: 'text-purple-400' },
   { icon: BookMarked, label: 'Bookmarks', color: 'text-yellow-400' },

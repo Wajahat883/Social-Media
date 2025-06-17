@@ -33,7 +33,11 @@ export default function Profile() {
 
   return (
     <>
+<<<<<<< HEAD
      
+=======
+      <Navbar />
+>>>>>>> ce2b804 (add video plane)
       <div className="bg-gray-100 min-h-screen">
         <ProfileHeader 
           userProfile={userProfile} 

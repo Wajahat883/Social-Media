@@ -9,6 +9,7 @@ import { UIProvider } from '../../components/Sidebar/sharecontext/Sharecontext';
 import { UEProvider } from '../../Context/Videopanelcontext';
 import { useUI } from '../../Context/Videopanelcontext';
 import VideoPanel from '../../components/Sidebar/Allsidebarcomponent/Videos/Videopanel';
+<<<<<<< HEAD
 import { MessageProvider } from '../../Context/Messagecontext';
 import { useMessage } from '../../Context/Messagecontext';
 import Messages from '../../components/Sidebar/Allsidebarcomponent/Message/Messages';
@@ -27,6 +28,16 @@ function HomeContent() {
       ) : (
         <MainContent />
       )}
+=======
+
+function HomeContent() {
+  const { showVideoPanel } = useUI();
+
+  return (
+    <div className="flex px-4">
+      <Sidebar />
+      {showVideoPanel ? <VideoPanel /> : <MainContent />}
+>>>>>>> ce2b804 (add video plane)
       <Rightbar />
     </div>
   );
@@ -37,11 +48,16 @@ export default function HomePage() {
     <UEProvider>
       <UIProvider>
         <VideoProvider>
+<<<<<<< HEAD
           <MessageProvider>
             {/* <Navbar /> */}
           <HomeContent />
           </MessageProvider>
         
+=======
+          <Navbar />
+          <HomeContent />
+>>>>>>> ce2b804 (add video plane)
         </VideoProvider>
       </UIProvider>
     </UEProvider>
