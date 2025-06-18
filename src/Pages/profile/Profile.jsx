@@ -33,7 +33,7 @@ export default function Profile() {
 
   return (
     <>
-      <Navbar />
+     
       <div className="bg-gray-100 min-h-screen">
         <ProfileHeader 
           userProfile={userProfile} 

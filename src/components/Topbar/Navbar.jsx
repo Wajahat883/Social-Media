@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import girlImg from '../../assets/Pics/girl1.jpg';
+import girlImg from "../../assets/Pics/girl1.jpg"
 import {
   Search,
   Home,
@@ -13,9 +13,11 @@ import { Link } from 'react-router-dom';
 import xLogo from '../../assets/Pics/logo.png';
 import ProfileDropdown from './profiledropdown/Profiledropdown';
 import { useUI } from '../../Context/Videopanelcontext';
+import { useMessage } from '../../Context/Messagecontext';
 
 export default function Navbar() {
   const { toggleVideoPanel } = useUI();
+  const {toggleMessage}=useMessage()
 
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -61,10 +63,14 @@ export default function Navbar() {
 
         {/* 🎥 Video icon */}
         <div
-          onClick={toggleVideoPanel}
+        
+        
           className="relative flex items-center justify-center w-14 h-12 hover:bg-gray-100 rounded-md cursor-pointer"
         >
-          <Video className="w-6 h-6 text-gray-600 hover:text-blue-600" />
+          <Link to="/videopanel" onClick={toggleVideoPanel}>
+           <Video className="w-6 h-6 text-gray-600 hover:text-blue-600" />
+          </Link>
+         
         </div>
 
         <div className="flex items-center justify-center w-14 h-12 hover:bg-gray-100 rounded-md cursor-pointer">
@@ -86,8 +92,16 @@ export default function Navbar() {
 
         {/* Messages */}
         <div className="relative">
+         
           <div className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gray-300 transition cursor-pointer">
-            <MessageCircle className="w-5 h-5 text-gray-700" />
+         <Link to="/messages" onClick={(e) => {
+  e.preventDefault(); // prevent route change
+  toggleMessage();    // just toggle
+}}>
+         <MessageCircle className="w-5 h-5 text-gray-700"
+             />
+         </Link>
+            
             <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">
               1
             </span>

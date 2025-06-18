@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useUI } from '../sharecontext/Sharecontext';
-import Feed from '../../Feed/Feed';
-import Messages from '../Allsidebarcomponent/Message/Messages';
+// import Feed from '../../Feed/Feed';
+// import Messages from '../Allsidebarcomponent/Message/Messages';
 import Videos from '../Allsidebarcomponent/Videos/Videos';
 import Share from '../../Sharedata/Share';
 import PostList from '../../post/Postlist';
@@ -22,7 +22,7 @@ export default function MainContent() {
           <PostList posts={posts} />
         </>
       )}
-      {activeSection === 'Messages' && <Messages />}
+      {/* {activeSection === 'Messages' && <Messages />} */}
       {activeSection === 'Videos' &&  <Videos/>}
       {/* {activeSection === 'Groups' && }
       {activeSection === 'Bookmarks' && }

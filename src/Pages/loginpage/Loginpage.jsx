@@ -5,7 +5,7 @@ import { useAuth } from "../../Context/Authcontext";
 import { toast } from "react-toastify";
 import AuthFormLayout from "../../Hooks/Auth/Authform";
 
-export default function Login() {
+export default function Loginpage() {
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({ email: "", password: "" });
   const { login, user } = useAuth();

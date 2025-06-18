@@ -9,6 +9,7 @@ import { PostProvider } from './components/post/postcontext.jsx';
 import { VideoProvider } from './Context/videocontext.jsx';
 import { UIProvider } from './components/Sidebar/sharecontext/Sharecontext.jsx';
 import { UEProvider } from './Context/Videopanelcontext.jsx';
+import { MessageProvider } from './Context/Messagecontext.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -16,12 +17,15 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <AuthProvider>
         <PostProvider>
           <VideoProvider>
-            <UEProvider>
+            <MessageProvider>
+ <UEProvider>
             <UIProvider>
 
             <App />
           </UIProvider>
             </UEProvider>
+            </MessageProvider>
+           
           
           </VideoProvider>         
         </PostProvider>

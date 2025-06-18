@@ -1,6 +1,6 @@
 import React, { useState, memo } from 'react';
 import {
-  Rss, MessagesSquare, Play, Users, BookMarked, CircleHelp,
+  Rss, Play, Users, BookMarked, CircleHelp,
   BriefcaseBusiness, Calendar, GraduationCap, ChevronDown, ChevronRight,
   Settings, LogOut
 } from 'lucide-react';
@@ -10,7 +10,7 @@ import { useUI } from './sharecontext/Sharecontext';
 
 const menuItems = [
   { icon: Rss, label: 'Feed', color: 'text-orange-400' },
-  { icon: MessagesSquare, label: 'Messages', color: 'text-green-400' },
+ 
   { icon: Play, label: 'Videos', color: 'text-red-400' },
   { icon: Users, label: 'Groups', color: 'text-purple-400' },
   { icon: BookMarked, label: 'Bookmarks', color: 'text-yellow-400' },
