@@ -1,12 +1,18 @@
 import React, { useState, memo } from 'react';
 import {
-<<<<<<< HEAD
-  Rss, Play, Users, BookMarked, CircleHelp,
-=======
-  Rss, MessagesSquare, Play, Users, BookMarked, CircleHelp,
->>>>>>> ce2b804 (add video plane)
-  BriefcaseBusiness, Calendar, GraduationCap, ChevronDown, ChevronRight,
-  Settings, LogOut
+  Rss,
+  MessagesSquare,
+  Play,
+  Users,
+  BookMarked,
+  CircleHelp,
+  BriefcaseBusiness,
+  Calendar,
+  GraduationCap,
+  ChevronDown,
+  ChevronRight,
+  Settings,
+  LogOut,
 } from 'lucide-react';
 import Avatar from './Avatar/Avatar';
 import FriendItem from './Friends/Friendsitem';
@@ -14,11 +20,7 @@ import { useUI } from './sharecontext/Sharecontext';
 
 const menuItems = [
   { icon: Rss, label: 'Feed', color: 'text-orange-400' },
-<<<<<<< HEAD
- 
-=======
   { icon: MessagesSquare, label: 'Messages', color: 'text-green-400' },
->>>>>>> ce2b804 (add video plane)
   { icon: Play, label: 'Videos', color: 'text-red-400' },
   { icon: Users, label: 'Groups', color: 'text-purple-400' },
   { icon: BookMarked, label: 'Bookmarks', color: 'text-yellow-400' },
@@ -33,7 +35,7 @@ function Sidebar() {
   const [friendsExpanded, setFriendsExpanded] = useState(true);
   const [showAllFriends, setShowAllFriends] = useState(false);
   const visibleFriends = showAllFriends ? friends : friends.slice(0, 4);
-  const onlineFriends = friends.filter(f => f.status === 'online');
+  const onlineFriends = friends.filter((f) => f.status === 'online');
 
   return (
     <div className="w-72 bg-gray-900 border-r border-gray-800 h-screen flex flex-col">
@@ -48,14 +50,16 @@ function Sidebar() {
       </div>
 
       <div className="flex-1 overflow-y-auto p-4">
-        {menuItems.map(item => {
+        {menuItems.map((item) => {
           const isActive = activeSection === item.label;
           return (
             <button
               key={item.label}
               onClick={() => setActiveSection(item.label)}
               className={`w-full flex items-center gap-3 p-3 rounded-xl transition-all duration-200 group relative ${
-                isActive ? 'bg-blue-600 text-white shadow-md' : 'text-gray-300 hover:bg-gray-800/50 hover:text-white'
+                isActive
+                  ? 'bg-blue-600 text-white shadow-md'
+                  : 'text-gray-300 hover:bg-gray-800/50 hover:text-white'
               }`}
             >
               <item.icon className={`w-5 h-5 ${isActive ? 'text-white' : item.color}`} />
@@ -83,7 +87,7 @@ function Sidebar() {
           {friendsExpanded && (
             <>
               <ul className="space-y-1">
-                {visibleFriends.map(friend => (
+                {visibleFriends.map((friend) => (
                   <FriendItem key={friend.id} friend={friend} />
                 ))}
               </ul>

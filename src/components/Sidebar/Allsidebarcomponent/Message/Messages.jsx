@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 import React, { useState, useEffect, useRef } from 'react';
 import { Send, Phone, Video, MoreHorizontal, X } from 'lucide-react';
 import { useMessage } from '../../../../Context/Messagecontext';
@@ -155,11 +155,6 @@ const Messages = () => {
   );
 };
 
-export default Messages;
-=======
-import React from 'react';
 
-export default function Messages() {
-  return <div className="text-black text-xl">💬 Your Messages will appear here</div>;
-}
->>>>>>> ce2b804 (add video plane)
+export default Messages;
+

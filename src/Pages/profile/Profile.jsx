@@ -7,7 +7,7 @@ import IntroCard from '../IntroCard/IntroCard';
 import PhotosCard from '../PhotosCard/PhotosCard';
 import FriendsCard from '../ProfileTabs/FriendsCard';
 import CreatePost from '../ProfileTabs/CreatePost';
-import { usePost } from '../../components/post/postcontext';// 👈 import context
+import { usePost } from '../../components/post/postcontext'; // 👈 import context
 
 export default function Profile() {
   const [activeTab, setActiveTab] = useState('posts');
@@ -33,11 +33,7 @@ export default function Profile() {
 
   return (
     <>
-<<<<<<< HEAD
-     
-=======
       <Navbar />
->>>>>>> ce2b804 (add video plane)
       <div className="bg-gray-100 min-h-screen">
         <ProfileHeader 
           userProfile={userProfile} 

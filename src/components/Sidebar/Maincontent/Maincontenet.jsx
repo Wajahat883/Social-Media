@@ -1,12 +1,7 @@
 import React, { useState } from 'react';
 import { useUI } from '../sharecontext/Sharecontext';
-<<<<<<< HEAD
-// import Feed from '../../Feed/Feed';
-// import Messages from '../Allsidebarcomponent/Message/Messages';
-=======
 import Feed from '../../Feed/Feed';
 import Messages from '../Allsidebarcomponent/Message/Messages';
->>>>>>> ce2b804 (add video plane)
 import Videos from '../Allsidebarcomponent/Videos/Videos';
 import Share from '../../Sharedata/Share';
 import PostList from '../../post/Postlist';
@@ -27,18 +22,17 @@ export default function MainContent() {
           <PostList posts={posts} />
         </>
       )}
-<<<<<<< HEAD
-      {/* {activeSection === 'Messages' && <Messages />} */}
-=======
+
       {activeSection === 'Messages' && <Messages />}
->>>>>>> ce2b804 (add video plane)
-      {activeSection === 'Videos' &&  <Videos/>}
-      {/* {activeSection === 'Groups' && }
-      {activeSection === 'Bookmarks' && }
-      {activeSection === 'Questions' && }
-      {activeSection === 'Jobs' && }
-      {activeSection === 'Events' && }
-      {activeSection === 'Courses' && } */}
+      {activeSection === 'Videos' && <Videos />}
+      
+      {/* Future features (placeholders): */}
+      {/* {activeSection === 'Groups' && <GroupsComponent />} */}
+      {/* {activeSection === 'Bookmarks' && <BookmarksComponent />} */}
+      {/* {activeSection === 'Questions' && <QuestionsComponent />} */}
+      {/* {activeSection === 'Jobs' && <JobsComponent />} */}
+      {/* {activeSection === 'Events' && <EventsComponent />} */}
+      {/* {activeSection === 'Courses' && <CoursesComponent />} */}
     </div>
   );
 }

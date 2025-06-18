@@ -5,11 +5,7 @@ import { useAuth } from "../../Context/Authcontext";
 import { toast } from "react-toastify";
 import AuthFormLayout from "../../Hooks/Auth/Authform";
 
-<<<<<<< HEAD
 export default function Loginpage() {
-=======
-export default function Login() {
->>>>>>> ce2b804 (add video plane)
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({ email: "", password: "" });
   const { login, user } = useAuth();
@@ -50,6 +46,7 @@ export default function Login() {
     >
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="space-y-4">
+          {/* Email Field */}
           <div className="relative">
             <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
             <input
@@ -62,6 +59,7 @@ export default function Login() {
             />
           </div>
 
+          {/* Password Field */}
           <div className="relative">
             <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
             <input

@@ -1,66 +1,59 @@
-// src/pages/HomePage.jsx
 import React from 'react';
 import Navbar from '../../components/Topbar/Navbar';
 import Sidebar from '../../components/Sidebar/Sidebar';
-import MainContent from "../../components/Sidebar/Maincontent/Maincontenet"
+import MainContent from '../../components/Sidebar/Maincontent/Maincontenet';
 import Rightbar from '../../components/Rightbar/rightbar';
+
 import { VideoProvider } from '../../Context/videocontext';
 import { UIProvider } from '../../components/Sidebar/sharecontext/Sharecontext';
-import { UEProvider } from '../../Context/Videopanelcontext';
-import { useUI } from '../../Context/Videopanelcontext';
-import VideoPanel from '../../components/Sidebar/Allsidebarcomponent/Videos/Videopanel';
-<<<<<<< HEAD
-import { MessageProvider } from '../../Context/Messagecontext';
-import { useMessage } from '../../Context/Messagecontext';
+import { UEProvider, useUI } from '../../Context/Videopanelcontext';
+
+import { MessageProvider, useMessage } from '../../Context/Messagecontext';
 import Messages from '../../components/Sidebar/Allsidebarcomponent/Message/Messages';
+import VideoPanel from '../../components/Sidebar/Allsidebarcomponent/Videos/Videopanel';
 
+// ✅ HomeContent Component
 function HomeContent() {
   const { showVideoPanel } = useUI();
-  const {showMessages}=useMessage
+  const { showMessages } = useMessage();
 
   return (
-    <div className="flex px-4">
-       <Sidebar />
-      {showMessages ? (
-        <Messages />
-      ) : showVideoPanel ? (
-        <VideoPanel />
-      ) : (
-        <MainContent />
-      )}
-=======
+    <div className="flex flex-1 px-4 mt-4 space-x-4">
+      {/* Left Sidebar */}
+      <div className="w-1/4 hidden lg:block overflow-y-auto custom-scroll">
+        <Sidebar />
+      </div>
 
-function HomeContent() {
-  const { showVideoPanel } = useUI();
+      {/* Center Panel */}
+      <div className="flex-1 overflow-y-auto custom-scroll">
+        {showMessages ? <Messages /> : showVideoPanel ? <VideoPanel /> : <MainContent />}
+      </div>
 
-  return (
-    <div className="flex px-4">
-      <Sidebar />
-      {showVideoPanel ? <VideoPanel /> : <MainContent />}
->>>>>>> ce2b804 (add video plane)
-      <Rightbar />
+      {/* Right Sidebar */}
+      <div className="w-80 hidden lg:block overflow-y-auto custom-scroll">
+        <Rightbar />
+      </div>
     </div>
   );
 }
 
+// ✅ Main HomePage Component
 export default function HomePage() {
   return (
     <UEProvider>
       <UIProvider>
         <VideoProvider>
-<<<<<<< HEAD
           <MessageProvider>
+
+            {/* Top Navbar */}
             {/* <Navbar /> */}
-          <HomeContent />
+
+            {/* Page Content */}
+            <HomeContent />
+
           </MessageProvider>
-        
-=======
-          <Navbar />
-          <HomeContent />
->>>>>>> ce2b804 (add video plane)
         </VideoProvider>
       </UIProvider>
     </UEProvider>
-
   );
 }
