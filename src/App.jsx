@@ -13,7 +13,7 @@ import Messages from './components/Sidebar/Allsidebarcomponent/Message/Messages'
 import Layout from './Layout';
 import { Navigate } from 'react-router-dom';
 import Marketplace from './components/Topbar/Market/Marketrender';
-
+import GroupsMain from './components/Groups/GroupsMain';
 
 export default function App() {
   const { user } = useAuth();
@@ -22,24 +22,20 @@ export default function App() {
     <>
       <ToastContainer position="top-right" autoClose={3000} />
 
-     <Routes>
- 
-  <Route path="/login" element={<Loginpage />} />
-  <Route path="/signup" element={<Signup />} />
+      <Routes>
+        <Route path="/login" element={<Loginpage />} />
+        <Route path="/signup" element={<Signup />} />
 
- 
-  <Route element={<Layout />}>
-    <Route path="/*" element={user ? <Homes /> : <Navigate to="/login" />} />
-     <Route path="/store" element={<Marketplace />} />
-    <Route path="/homepage" element={<HomePage />} />
-    <Route path="/profile" element={<Profile />} />
-    <Route path="/videopanel" element={<VideoPanel />} />
-    <Route path="/messages" element={<Messages />} />
-          
-  </Route>
-</Routes>
-
-
+        <Route element={<Layout />}>
+          <Route path="/*" element={user ? <Homes /> : <Navigate to="/login" />} />
+          <Route path="/store" element={<Marketplace />} />
+          <Route path="/groups" element={<GroupsMain />} />
+          <Route path="/homepage" element={<HomePage />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/videopanel" element={<VideoPanel />} />
+          <Route path="/messages" element={<Messages />} />
+        </Route>
+      </Routes>
     </>
   );
 }

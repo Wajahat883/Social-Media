@@ -52,9 +52,9 @@ export default function Navbar() {
           <Home className="w-6 h-6 text-gray-600 hover:text-blue-600" />
         </Link>
 
-        <div className="flex items-center justify-center w-14 h-12 hover:bg-gray-100 rounded-md cursor-pointer">
+        <Link to="/groups" className="flex items-center justify-center w-14 h-12 hover:bg-gray-100 rounded-md">
           <Users className="w-6 h-6 text-gray-600 hover:text-blue-600" />
-        </div>
+        </Link>
 
         <div className="relative flex items-center justify-center w-14 h-12 hover:bg-gray-100 rounded-md cursor-pointer">
           <Link to="/videopanel" onClick={toggleVideoPanel}>
@@ -63,8 +63,8 @@ export default function Navbar() {
         </div>
 
         <Link to="/store" className="flex items-center justify-center w-14 h-12 hover:bg-gray-100 rounded-md">
-  <Store className="w-6 h-6 text-gray-600 hover:text-blue-600" />
-</Link>
+          <Store className="w-6 h-6 text-gray-600 hover:text-blue-600" />
+        </Link>
       </div>
 
       {/* Right - Notifications & Profile */}
