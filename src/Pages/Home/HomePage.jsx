@@ -45,10 +45,6 @@ export default function HomePage() {
         <VideoProvider>
           <MessageProvider>
 
-            {/* Top Navbar */}
-            {/* <Navbar /> */}
-
-            {/* Page Content */}
             <HomeContent />
 
           </MessageProvider>

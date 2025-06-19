@@ -7,27 +7,25 @@ import {
   Video,
   Store,
   MessageCircle,
-  Bell
+  Bell,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import xLogo from '../../assets/Pics/logo.png';
 import ProfileDropdown from './profiledropdown/Profiledropdown';
 import { useUI } from '../../Context/Videopanelcontext';
 import { useMessage } from '../../Context/Messagecontext';
+import Notification from './notification/Notification';
 
 export default function Navbar() {
   const { toggleVideoPanel } = useUI();
   const { toggleMessage } = useMessage();
 
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isNotificationOpen, setIsNotificationOpen] = useState(false);
 
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
-  };
-
-  const closeDropdown = () => {
-    setIsDropdownOpen(false);
-  };
+  const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
+  const closeDropdown = () => setIsDropdownOpen(false);
+  const toggleNotification = () => setIsNotificationOpen(!isNotificationOpen);
 
   return (
     <div className="w-full sticky top-0 bg-gradient-to-r from-pink-500 via-purple-500 to-yellow-400 h-16 flex items-center justify-between px-4 shadow-md z-50">
@@ -64,24 +62,33 @@ export default function Navbar() {
           </Link>
         </div>
 
-        <div className="flex items-center justify-center w-14 h-12 hover:bg-gray-100 rounded-md cursor-pointer">
-          <Store className="w-6 h-6 text-gray-600 hover:text-blue-600" />
-        </div>
+        <Link to="/store" className="flex items-center justify-center w-14 h-12 hover:bg-gray-100 rounded-md">
+  <Store className="w-6 h-6 text-gray-600 hover:text-blue-600" />
+</Link>
       </div>
 
       {/* Right - Notifications & Profile */}
       <div className="flex items-center gap-3 flex-1 justify-end">
-        {/* Notifications */}
+        {/* 🔔 Notifications */}
         <div className="relative">
-          <div className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gray-300 transition cursor-pointer">
+          <div
+            onClick={toggleNotification}
+            className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gray-300 transition cursor-pointer relative"
+          >
             <Bell className="w-5 h-5 text-gray-700" />
             <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">
               1
             </span>
           </div>
+
+          {isNotificationOpen && (
+            <div className="absolute top-12 right-0 z-50">
+              <Notification onClose={() => setIsNotificationOpen(false)} />
+            </div>
+          )}
         </div>
 
-        {/* Messages */}
+        {/* 💬 Messages */}
         <div className="relative">
           <div className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gray-300 transition cursor-pointer">
             <Link
@@ -99,7 +106,7 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Profile Dropdown */}
+        {/* 👤 Profile Dropdown */}
         <div className="relative">
           <button
             onClick={toggleDropdown}

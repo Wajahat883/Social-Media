@@ -1,6 +1,6 @@
 import React from 'react';
 import { usePost } from './postcontext';
-import Post from './post';
+import Post from './Post';
 
 export default function PostList() {
   const { posts } = usePost();

@@ -9,7 +9,8 @@ import { VideoProvider } from './Context/videocontext.jsx';
 import { UIProvider } from './components/Sidebar/sharecontext/Sharecontext.jsx';
 import { UEProvider } from './Context/Videopanelcontext.jsx';
 import { MessageProvider } from './Context/Messagecontext.jsx';
-
+import { NotificationProvider } from './Context/NotificationContext.jsx';
+import { GroupProvider } from './Context/Groupcontext.jsx';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
@@ -19,7 +20,12 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <MessageProvider>
               <UEProvider>
                 <UIProvider>
-                  <App />
+                  <NotificationProvider>
+                    <GroupProvider>
+<App />
+                    </GroupProvider>
+                    
+                  </NotificationProvider>
                 </UIProvider>
               </UEProvider>
             </MessageProvider>

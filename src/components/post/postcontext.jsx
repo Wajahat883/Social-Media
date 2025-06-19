@@ -10,17 +10,26 @@ export const PostProvider = ({ children }) => {
 
   // ✅ Load posts from localStorage on mount
   useEffect(() => {
-    const stored = localStorage.getItem('myPosts');
-    if (stored) {
-      setPosts(JSON.parse(stored));
+    try {
+      const stored = localStorage.getItem('myPosts');
+      if (stored) {
+        setPosts(JSON.parse(stored));
+      }
+    } catch (error) {
+      console.error('Error loading posts from localStorage:', error);
     }
   }, []);
 
-  // ✅ Save to localStorage when posts change
+  // ✅ Save to localStorage when posts change (limit to 50 posts)
   useEffect(() => {
+    try {
       if (posts.length > 0) {
-    localStorage.setItem('myPosts', JSON.stringify(posts));
+        const limitedPosts = posts.slice(0, 50); // only keep latest 50 posts
+        localStorage.setItem('myPosts', JSON.stringify(limitedPosts));
       }
+    } catch (error) {
+      console.error('Storage Limit Exceeded:', error);
+    }
   }, [posts]);
 
   // ✅ Add post function

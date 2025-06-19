@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { memo, useEffect } from 'react';
 import gift1 from '../../assets/Pics/gift1.jpg';
 import nature7 from '../../assets/Pics/nature7.jpg';
 import { MoreUsers } from '../../dummydata/dummydata';
 import Onlinefriends from '../online/Onlinefriends';
 import ImageCompressor from '../../Imagecompressor/Imagecompressor';
 
-export default function Rightbars({ profile }) {
+ function Rightbars({ profile }) {
 
   useEffect(() => {
     const allImages = document.querySelectorAll("img");
@@ -63,3 +63,4 @@ export default function Rightbars({ profile }) {
     </div>
   );
 }
+export default memo(Rightbars)

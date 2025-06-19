@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { useVideo } from '../../../../Context/videocontext';
 
-export default function VideoPanel() {
+ function VideoPanel() {
   const { videos } = useVideo();
 
   return (
@@ -26,3 +26,4 @@ export default function VideoPanel() {
     </div>
   );
 }
+export default memo(VideoPanel)

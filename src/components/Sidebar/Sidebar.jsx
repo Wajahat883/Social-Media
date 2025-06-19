@@ -1,39 +1,30 @@
 import React, { useState, memo } from 'react';
 import {
-  Rss,
-  MessagesSquare,
-  Play,
-  Users,
-  BookMarked,
-  CircleHelp,
-  BriefcaseBusiness,
-  Calendar,
-  GraduationCap,
-  ChevronDown,
-  ChevronRight,
-  Settings,
-  LogOut,
+  Rss, Play, Users, BookMarked, CircleHelp,
+  BriefcaseBusiness, Calendar, GraduationCap,
+  ChevronDown, ChevronRight, Settings, LogOut,
 } from 'lucide-react';
 import Avatar from './Avatar/Avatar';
 import FriendItem from './Friends/Friendsitem';
 import { useUI } from './sharecontext/Sharecontext';
+import { Link } from 'react-router-dom';
 
 const menuItems = [
-  { icon: Rss, label: 'Feed', color: 'text-orange-400' },
-  { icon: MessagesSquare, label: 'Messages', color: 'text-green-400' },
-  { icon: Play, label: 'Videos', color: 'text-red-400' },
-  { icon: Users, label: 'Groups', color: 'text-purple-400' },
-  { icon: BookMarked, label: 'Bookmarks', color: 'text-yellow-400' },
-  { icon: CircleHelp, label: 'Questions', color: 'text-blue-400' },
-  { icon: BriefcaseBusiness, label: 'Jobs', color: 'text-emerald-400' },
-  { icon: Calendar, label: 'Events', color: 'text-pink-400' },
-  { icon: GraduationCap, label: 'Courses', color: 'text-indigo-400' },
+  { icon: Rss, label: 'Feed', color: 'text-orange-400', path: '/' },
+  { icon: Play, label: 'Videos', color: 'text-red-400', path: '/videos' },
+  { icon: Users, label: 'Groups', color: 'text-purple-400', path: '/groups' },
+  { icon: BookMarked, label: 'Bookmarks', color: 'text-yellow-400', path: '/bookmarks' },
+  { icon: CircleHelp, label: 'Questions', color: 'text-blue-400', path: '/questions' },
+  { icon: BriefcaseBusiness, label: 'Jobs', color: 'text-emerald-400', path: '/jobs' },
+  { icon: Calendar, label: 'Events', color: 'text-pink-400', path: '/events' },
+  { icon: GraduationCap, label: 'Courses', color: 'text-indigo-400', path: '/courses' },
 ];
 
 function Sidebar() {
   const { activeSection, setActiveSection, userData, friends } = useUI();
   const [friendsExpanded, setFriendsExpanded] = useState(true);
   const [showAllFriends, setShowAllFriends] = useState(false);
+
   const visibleFriends = showAllFriends ? friends : friends.slice(0, 4);
   const onlineFriends = friends.filter((f) => f.status === 'online');
 
@@ -53,7 +44,8 @@ function Sidebar() {
         {menuItems.map((item) => {
           const isActive = activeSection === item.label;
           return (
-            <button
+            <Link
+              to={item.path}
               key={item.label}
               onClick={() => setActiveSection(item.label)}
               className={`w-full flex items-center gap-3 p-3 rounded-xl transition-all duration-200 group relative ${
@@ -67,11 +59,11 @@ function Sidebar() {
               {isActive && (
                 <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-white rounded-r-full"></div>
               )}
-            </button>
+            </Link>
           );
         })}
 
-        {/* Friends */}
+        {/* 👥 Online Friends Section - fully kept intact as you made it */}
         <div className="pt-6 border-t border-gray-800 mt-6">
           <button
             onClick={() => setFriendsExpanded(!friendsExpanded)}

@@ -1,11 +1,13 @@
 import React, { useState, useRef } from 'react';
-import { Camera, Image, Smile, Users, X, Send } from 'lucide-react';
+import { Camera, Image, Smile, Users, X, Send, Video } from 'lucide-react';
 import { usePost } from '../post/postcontext';
+import { useNotification } from '../../Context/NotificationContext';
+
 import TagPeople from '../Tagpeople/Tagpeople';
-import FeelingActivity from '../Feeling/Feelingactivity'; // ✅ correct path
+import FeelingActivity from '../Feeling/Feelingactivity';
 
 export default function Share() {
-  const [postText, setPostText] = useState('');
+  const [postText, setPostText] = useState('');                                                                  
   const [selectedImages, setSelectedImages] = useState([]);
   const [isPosting, setIsPosting] = useState(false);
   const [selectedFeeling, setSelectedFeeling] = useState(null);
@@ -14,10 +16,11 @@ export default function Share() {
   const fileInputRef = useRef(null);
 
   const { addPost } = usePost();
+  const { addNotification } = useNotification(); 
 
   const currentUser = {
-    name: "John Doe",
-    avatar: "https://api.dicebear.com/7.x/initials/svg?seed=JohnDoe",
+    name: "Waji",
+    avatar: "https://api.dicebear.com/7.x/initials/svg?seed=Waji",
     id: "user123"
   };
 
@@ -26,7 +29,7 @@ export default function Share() {
     if (files.length === 0) return;
 
     files.forEach(file => {
-      if (file.type.startsWith('image/') && file.size < 10 * 1024 * 1024) {
+      if (file.type.startsWith('image/') || file.type.startsWith('video/')) {
         const reader = new FileReader();
         reader.onload = (event) => {
           const newImage = {
@@ -62,6 +65,7 @@ export default function Share() {
 
     try {
       await new Promise(resolve => setTimeout(resolve, 1000));
+
       const newPost = {
         text: postText,
         images: selectedImages.map(img => img.preview),
@@ -72,8 +76,28 @@ export default function Share() {
       };
 
       addPost(newPost);
-     
 
+      // ✅ Notification Logic
+      let message = 'posted something.';
+      const isVideo = selectedImages.some(img =>
+        img.name.toLowerCase().endsWith('.mp4') || img.name.toLowerCase().endsWith('.mov')
+      );
+
+      if (selectedImages.length > 0) {
+        message = isVideo ? 'uploaded a video.' : 'uploaded a photo.';
+      }
+
+      addNotification({
+        user: currentUser.name,
+        message: message,
+        time: 'Just now',
+        avatar: currentUser.avatar,
+        icon: isVideo ? Video : Camera,
+        color: isVideo ? 'text-red-500' : 'text-green-600',
+        bgColor: isVideo ? 'bg-red-100' : 'bg-green-100'
+      });
+
+      // Reset State
       setPostText('');
       setSelectedImages([]);
       setTaggedPeople([]);
@@ -96,15 +120,11 @@ export default function Share() {
     <div className="bg-white rounded-lg shadow-sm border border-gray-200 mb-4">
       <div className="p-4 border-b border-gray-100">
         <div className="flex items-center space-x-3">
-          <img
-            src={currentUser.avatar}
-            alt={currentUser.name}
-            className="w-10 h-10 rounded-full object-cover"
-          />
+          <img src={currentUser.avatar} alt={currentUser.name} className="w-10 h-10 rounded-full object-cover" />
           <textarea
             value={postText}
             onChange={(e) => setPostText(e.target.value)}
-            placeholder={`What's on your mind, ${currentUser.name.split(' ')[0]}?`}
+            placeholder={`What's on your mind, ${currentUser.name}?`}
             className="w-full bg-gray-50 rounded-md px-4 py-2 text-gray-700 placeholder-gray-500 border-none outline-none resize-none overflow-hidden min-h-[40px] max-h-32"
             rows="1"
             onInput={(e) => {
@@ -148,11 +168,7 @@ export default function Share() {
           }`}>
             {selectedImages.map((image) => (
               <div key={image.id} className="relative group">
-                <img
-                  src={image.preview}
-                  alt={image.name || "Uploaded preview"}
-                  className={`w-full object-cover rounded-lg ${selectedImages.length === 1 ? 'h-64' : 'h-32'}`}
-                />
+                <img src={image.preview} alt={image.name || "Uploaded preview"} className={`w-full object-cover rounded-lg ${selectedImages.length === 1 ? 'h-64' : 'h-32'}`} />
                 <button
                   onClick={() => removeImage(image.id)}
                   className="absolute top-2 right-2 bg-gray-800 bg-opacity-60 text-white rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity hover:bg-opacity-80"
@@ -183,7 +199,6 @@ export default function Share() {
             </button>
 
             <TagPeople selectedTags={taggedPeople} onTagsChange={setTaggedPeople} />
-
             <FeelingActivity selectedFeeling={selectedFeeling} onSelectionChange={setSelectedFeeling} />
           </div>
 
@@ -214,7 +229,7 @@ export default function Share() {
       <input
         ref={fileInputRef}
         type="file"
-        accept="image/*"
+        accept="image/*,video/*"
         multiple
         onChange={handleImageSelect}
         className="hidden"
