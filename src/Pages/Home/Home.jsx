@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import Navbar from '../../components/Topbar/Navbar';
 import Sidebar from '../../components/Sidebar/Sidebar';
-import Rightbars from '../../components/Rightbar/rightbar';
+import Rightbars from '../../components/Rightbar/Rightbar';
 import './Home.css';
 import { Routes, Route } from 'react-router-dom';
 import MainContent from '../../components/Sidebar/Maincontent/Maincontenet';

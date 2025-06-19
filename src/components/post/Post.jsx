@@ -1,6 +1,6 @@
 // Post.jsx
 import React, { useState } from 'react';
-import CommentBox from './comentbox';
+import CommentBox from './Comentbox';
 import PostDropdownMenu from './Postdropdownmenu';
 import PostInteractions from './PostInteractions';
 
