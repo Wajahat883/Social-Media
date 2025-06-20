@@ -1,6 +1,6 @@
 import React from 'react';
 import Share from '../Sharedata/Share';
-import Posts from '../post/Post';
+import Post from '../post/Post';
 import { memo } from 'react';
 import { usePost } from '../post/postcontext';
 import { useLocation } from 'react-router-dom';

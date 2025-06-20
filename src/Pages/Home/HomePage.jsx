@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from '../../components/Topbar/Navbar';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import MainContent from '../../components/Sidebar/Maincontent/Maincontenet';
-import Rightbar from '../../components/Rightbar/Rightbar';
+import Rightbar from '../../components/Rightbar/rightbar';
 
 import { VideoProvider } from '../../Context/videocontext';
 import { UIProvider } from '../../components/Sidebar/sharecontext/Sharecontext';

@@ -63,7 +63,7 @@ function Sidebar() {
           );
         })}
 
-        {/* 👥 Online Friends Section - fully kept intact as you made it */}
+       
         <div className="pt-6 border-t border-gray-800 mt-6">
           <button
             onClick={() => setFriendsExpanded(!friendsExpanded)}

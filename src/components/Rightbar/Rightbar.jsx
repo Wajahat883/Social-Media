@@ -5,7 +5,7 @@ import { MoreUsers } from '../../dummydata/dummydata';
 import Onlinefriends from '../online/Onlinefriends';
 import ImageCompressor from '../../Imagecompressor/Imagecompressor';
 
- function Rightbars({ profile }) {
+ function Rightbar({ profile }) {
 
   useEffect(() => {
     const allImages = document.querySelectorAll("img");
@@ -63,4 +63,4 @@ import ImageCompressor from '../../Imagecompressor/Imagecompressor';
     </div>
   );
 }
-export default memo(Rightbars)
+export default memo(Rightbar)
