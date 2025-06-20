@@ -8,6 +8,7 @@ import {
   Store,
   MessageCircle,
   Bell,
+  User,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import xLogo from '../../assets/Pics/logo.png';
@@ -57,7 +58,7 @@ export default function Navbar() {
         </Link>
 
         <div className="relative flex items-center justify-center w-14 h-12 hover:bg-gray-100 rounded-md cursor-pointer">
-          <Link to="/videopanel" onClick={toggleVideoPanel}>
+          <Link to="/enhanced-videos" onClick={toggleVideoPanel}>
             <Video className="w-6 h-6 text-gray-600 hover:text-blue-600" />
           </Link>
         </div>
@@ -108,12 +109,23 @@ export default function Navbar() {
 
         {/* 👤 Profile Dropdown */}
         <div className="relative">
-          <button
-            onClick={toggleDropdown}
-            className="w-10 h-10 rounded-full object-cover border-2 border-transparent hover:border-white transition-all duration-200 focus:outline-none"
-          >
-            <img src={girlImg} alt="profile" className="w-full h-full rounded-full object-cover" />
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={toggleDropdown}
+              className="w-10 h-10 rounded-full object-cover border-2 border-transparent hover:border-white transition-all duration-200 focus:outline-none"
+            >
+              <img src={girlImg} alt="profile" className="w-full h-full rounded-full object-cover" />
+            </button>
+            
+            {/* Enhanced Profile Link */}
+            <Link 
+              to="/enhanced-profile"
+              className="hidden md:flex items-center gap-2 px-3 py-2 bg-white bg-opacity-20 hover:bg-opacity-30 rounded-lg transition-all"
+            >
+              <User className="w-4 h-4 text-white" />
+              <span className="text-white font-medium">Profile</span>
+            </Link>
+          </div>
 
           <ProfileDropdown
             isOpen={isDropdownOpen}

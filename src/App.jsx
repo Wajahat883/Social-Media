@@ -5,10 +5,12 @@ import 'react-toastify/dist/ReactToastify.css';
 import Loginpage from './Pages/loginpage/Loginpage';
 import HomePage from './Pages/Home/HomePage';
 import Profile from './Pages/profile/Profile';
+import EnhancedProfile from './Pages/profile/EnhancedProfile';
 import Homes from './Pages/Home/Home';
 import Signup from './Pages/signup/Signup';
 import { useAuth } from './Context/Authcontext';
 import VideoPanel from './components/Sidebar/Allsidebarcomponent/Videos/Videopanel';
+import EnhancedVideoPanel from './components/Sidebar/Allsidebarcomponent/Videos/EnhancedVideoPanel';
 import Messages from './components/Sidebar/Allsidebarcomponent/Message/Messages';
 import Layout from './Layout';
 import { Navigate } from 'react-router-dom';
@@ -32,7 +34,9 @@ export default function App() {
           <Route path="/groups" element={<GroupsMain />} />
           <Route path="/homepage" element={<HomePage />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/enhanced-profile" element={<EnhancedProfile />} />
           <Route path="/videopanel" element={<VideoPanel />} />
+          <Route path="/enhanced-videos" element={<EnhancedVideoPanel />} />
           <Route path="/messages" element={<Messages />} />
         </Route>
       </Routes>
